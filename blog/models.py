@@ -10,4 +10,4 @@ class Post(models.Model):
 
 
     def __str__(self):
-        return f"{self.title}- {self.published.strftime('%d/%m/%y')}"
+        return f"{self.title}"
