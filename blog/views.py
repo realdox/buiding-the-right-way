@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from .models import Post
@@ -30,8 +30,21 @@ class BlogUpdateView(UpdateView):
     template_name = 'blog/post_edit.html'
     fields = ['title', 'body']
 
+    '''
+    def dispatch(self,request,id,*args,**kwargs):
+        post = get_object_or_404(Post,id=id)
+        if obj.user != self.author:
+            raise Http404('You are not allowed')
+        return super(BlogUpdateView,self).dispatch(request, *args, **kwargs)
+        # time no dey to get creative but i will love to improve on this functionality later
+    '''
 
 class BlogDeleteView(DeleteView):
     model = Post
     template_name = 'blog/post_delete.html'
     success_url = reverse_lazy('home')
+
+def comment_view(request):
+
+    context = {}
+    return render (request,'blog/comment.html',context)
