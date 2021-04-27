@@ -16,6 +16,11 @@ margin-bottom: 2rem;
 display: flex;
 }
 
+span a{
+    padding: 5px;
+    margin: 5px;
+}
+
 .nav-left {
 margin-right: auto;
 }
@@ -41,3 +46,4 @@ font-weight: 400;
 .post-entry h2 a:hover {
 color: red;
 }
+
